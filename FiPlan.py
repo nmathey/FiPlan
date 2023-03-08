@@ -176,7 +176,7 @@ def modFiGoal(index, myfiplan):
         addEnvelop(myfiplan, index)
         myfiplan['info'].update({"lastenvelop_index": myfiplan['info'].get('lastenvelop_index') + 1})
     elif resp == "B":
-
+        # ToDo back to previous menu
     else:
         print("Wrong input")
     printFiPlan(myfiplan)
