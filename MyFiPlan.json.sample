@@ -1,0 +1,102 @@
+{
+  "info" : {
+    "currency" : "XPF",
+    "current_saving_power" : 400000,
+    "dateOf_birth" : "1981-08-03",
+    "expectedYearly_inflation" : 0.02,
+    "expectedDateOf_death" : "2071-08-03",
+  },
+  "data" : {
+    "loans" : [
+      {
+        "name" : "Tina",
+        "monthly_reimb" : 200460,
+        "endOf_date" : "2041-05-01"
+      },
+      {
+        "name" : "Tina_PV",
+        "monthly_reimb" : 33645,
+        "endOf_date" : "2026-02-01"
+      }
+      ],
+    "emergency_founds" : {
+      "goal" : 1400000,
+      "envelops" : [
+        {
+          "name" : "Livret A",
+          "current_balance" : 1500000,
+          "expected_growthYield" : 0.03,
+          "monthly_invest" : 0
+        }
+      ]
+    },
+    "studies_candice" : {
+      "name" : "Etudes de Candice",
+      "goal" : 3514978,
+      "endOf_date" : "2030-08-28",
+      "envelops" : [
+        {
+          "name": "Nalo Candice",
+          "current_balance": 300000,
+          "expected_growthYield": 0.05,
+          "monthly_invest": 26253
+        }
+      ]
+    },
+    "studies_claire" : {
+      "name" : "Etudes de Claire",
+      "goal" : 3656983,
+      "endOf_date" : "2033-05-10",
+      "envelops" : [
+        {
+          "name": "Nalo Claire",
+          "current_balance": 300000,
+          "expected_growthYield": 0.05,
+          "monthly_invest": 17900
+        }
+      ]
+    },
+    "retirement" : {
+      "goal" : 49932000,
+      "endOf_date" : "2046-08-03",
+      "envelops" : [
+        {
+          "name" : "RealT",
+          "current_balance" : 1700,
+          "expected_growthYield" : 0,
+          "expected_dividendYield" : 0.09,
+          "monthly_invest" : 22000
+        },
+        {
+          "name" : "IB",
+          "current_balance" : 7200,
+          "expected_growthYield" : 0.05,
+          "expected_dividendYield" : 0.04,
+          "monthly_invest" : 30000
+        },
+        {
+          "name" : "WeSave",
+          "current_balance" : 7800,
+          "expected_growthYield" : 0.06,
+          "expected_dividendYield" : 0,
+          "monthly_invest" : 30000
+        },
+        {
+          "name" : "Linxea",
+          "current_balance" : 1500,
+          "expected_growthYield" : 0.05,
+          "expected_dividendYield" : 0,
+          "monthly_invest" : 11900
+        },
+        {
+          "name" : "RevolutTrading",
+          "current_balance" : 600,
+          "expected_growthYield" : 0.05,
+          "expected_dividendYield" : 0.04,
+          "monthly_invest" : 11900
+        }
+      ]
+    }
+  }
+
+}

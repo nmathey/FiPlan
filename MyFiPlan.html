@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="totals">Current total of monthly payments/investments</div>
+		<canvas id="myChart"></canvas>
+		<div class="fiplan-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Goal name</th>
+						<th>Goal type</th>
+						<th>Target amount</th>
+						<th>Target amount (inflation adjusted)</th>
+						<th>Target date</th>
+						<th>Current balance</th>
+						<th>AVG Expected envelops perf.</th>
+						<th>Optimal monthly invest.</th>
+						<th>Current monthly invest.</th>
+					</tr>
+				</thead>
+				<tbody id="fiplan"></tbody>
+			</table>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script type="text/javascript" src="MyFiPlan.js">
+		</script>
+	</body>
+</html>
