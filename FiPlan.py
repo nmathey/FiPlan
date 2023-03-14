@@ -24,7 +24,7 @@ with open(MyFiPlan_Path) as json_file:
 
         MyFiPlan = {
             "info": {
-               "currency": currency,
+                "currency": currency,
                 "current_saving_power": current_saving_power,
                 "dateOf_birth": dateOf_birth,
                 "expectedYearly_inflation": float(expectedYearly_inflation)/100,
@@ -36,11 +36,12 @@ with open(MyFiPlan_Path) as json_file:
             }
         }
 
+
 def printFiPlan(myfiplan):
     for goal in myfiplan['data']:
         print("["+goal+"] ("+myfiplan['data'][goal].get('type')+") " + myfiplan['data'][goal].get('name'))
     print("What would you like to do ?")
-    resp = input("Type 'A' to add a goal; its index number to modify or delete it ; 'Q' to exit" )
+    resp = input("Type 'A' to add a goal; its index number to modify or delete it ; 'Q' to exit ")
     if resp == "A":
         addFiGoal(myfiplan)
     elif resp == "Q":
@@ -72,16 +73,18 @@ def addFiGoal_Loan():
         }
     }
 
+
 def addFiGoal_Generic():
     name = input("Name of this goal? ")
     goal_amount = input("What is your goal amount? ")
     endOf_date = input("When do you want to achieve this goal? (YYYY-mm-dd format) ")
     return {"type": "Generic", "name": name, "goal": float(goal_amount), "endOf_date": endOf_date, "envelops": {}}
 
+
 def addFiGoal_Emergency(current_saving_power):
     name = "Emergency goal"
     goal_amount = input("What is your emergency found goal amount? ")
-    current_balance = input ("How much you have save already? ")
+    current_balance = input("How much you have save already? ")
     print("You have " + str(current_saving_power) + " monthly power saving. You should first totaly use it in order to finish your emergency found as soon as possible")
     monthly_saving = input("Your monthly saving for your emergency found? ")
     endOf_date = datetime.today() + relativedelta(months=int(math.ceil((float(goal_amount) - float(current_balance)) / float(monthly_saving))))
@@ -100,6 +103,7 @@ def addFiGoal_Emergency(current_saving_power):
             }
         }
     }
+
 
 def addFiGoal_Retirement(dateofbirth):
     name = input("Name of this retirement goal? ")
@@ -141,6 +145,7 @@ def addFiGoal(myfiplan):
     printFiPlan(myfiplan)
     return fiplan
 
+
 def modFiGoal(index, myfiplan):
     print("Details for " + myfiplan['data'][index].get('name') + ":")
     for k, v in myfiplan['data'][index].items():
@@ -176,13 +181,14 @@ def modFiGoal(index, myfiplan):
         addEnvelop(myfiplan, index)
         myfiplan['info'].update({"lastenvelop_index": myfiplan['info'].get('lastenvelop_index') + 1})
     elif resp == "B":
-        # ToDo back to previous menu
+        modFiGoal(index, myfiplan)
     else:
         print("Wrong input")
     printFiPlan(myfiplan)
     return myfiplan
 
-def modEnvelops (myfiplan, myfigoalindex):
+
+def modEnvelops(myfiplan, myfigoalindex):
     print("Envelops for " + myfiplan['data'][myfigoalindex].get('name') + ":")
     for k, v in myfiplan['data'][myfigoalindex]['envelops'].items():
         print(k, v)
@@ -193,7 +199,8 @@ def modEnvelops (myfiplan, myfigoalindex):
     else:
         if str(resp) in myfiplan['data'][myfigoalindex]['envelops']:
             myfiplan['data'][myfigoalindex]['envelops'].update(
-                {str(myfiplan['info'].get('lastenvelop_index') + 1):
+                {
+                    str(myfiplan['info'].get('lastenvelop_index') + 1):
                     {
                         genEnvelop()
                     }
@@ -201,6 +208,7 @@ def modEnvelops (myfiplan, myfigoalindex):
             )
         else:
             print("Wrong input")
+
 
 def genEnvelop():
     name = input('The of this goal envelop? ')
@@ -216,18 +224,21 @@ def genEnvelop():
         'monthly_invest': float(monthly_invest)
     }
 
-def addEnvelop (myfiplan, myfigoalindex):
+
+def addEnvelop(myfiplan, myfigoalindex):
 
     myfiplan['data'][myfigoalindex]['envelops'].update(
-        {str(myfiplan['info'].get('lastenvelop_index') + 1):
-             {
+        {
+            str(myfiplan['info'].get('lastenvelop_index') + 1):
+                {
                 genEnvelop()
-             }
+                }
         }
     )
 
 # def modEnvelop(index, myfigoal):
 
 # TODO mod/remove envelops from goals
+
 
 printFiPlan(MyFiPlan)
